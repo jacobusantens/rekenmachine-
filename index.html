@@ -1,12 +1,73 @@
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Een rekenmachine voor Adrie</h1>
+    <title>CALCULADORA</title>
+    <style type="text/css">
+.screen {
+            height: 50px;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        
+        .keys {
+            width: 350px;
+        }
+        
+        .btn,
+        .operator {
+            width: 70px;
+            height: 50px;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+ function display(val) {
+            document.getElementById('result').value += val;
+        }
 
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti veritatis itaque sapiente impedit delectus officia a quaerat, consequatur, blanditiis, vitae minus reiciendis. Ea a iure neque sunt quam culpa possimus?</p>
+        function clearScreen() {
+            document.getElementById('result').value = "";
+        }
+
+        function solve() {
+            let x = document.getElementById('result').value;
+            let y = eval(x);
+            document.getElementById('result').value = y;
+            return y;
+        }
+
+    </script>
+</head>
+
+
+<body>
+<div class="container">
+        <input type="text" id="result" class="screen" />
+        <input type="button" value="C" onclick="clearScreen()" class="btn" />
+
+        <div class="keys">
+            <input type="button" value="7" class="btn" onclick="display('7')" />
+            <input type="button" value="8" class="btn" onclick="display('8')" />
+            <input type="button" value="9" class="btn" onclick="display('9')" />
+
+            <input type="button" value="/" class="operator" onclick="display('/')" />
+            <input type="button" value="4" class="btn" onclick="display('4')" />
+            <input type="button" value="5" class="btn" onclick="display('5')" />
+            <input type="button" value="6" class="btn" onclick="display('6')" />
+
+            <input type="button" value="*" class="operator" onclick="display('*')" />
+            <input type="button" value="1" class="btn" onclick="display('1')" />
+            <input type="button" value="2" class="btn" onclick="display('2')" />
+            <input type="button" value="3" class="btn" onclick="display('3')" />
+
+            <input type="button" value="-" class="operator" onclick="display('-')" />
+            <input type="button" value="0" class="btn" onclick="display('0')" />
+
+            <input type="button" value="." class="operator" onclick="display('.')" />
+            <input type="button" value="=" class="btn" onclick="solve()" />
+            <input type="button" value="+" class="operator" onclick="display('+')" />
+        </div>
+    </div>
 </body>
 </html>
